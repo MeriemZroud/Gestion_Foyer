@@ -49,4 +49,11 @@ public class UniversiteRestController {
     public Universite modifyUniversite(@RequestBody Universite universite) {
         return universiteService.modifyUniversite(universite);
     }
+
+    @Operation(description = "affecter un foyer à une université")
+    @PostMapping("/affecterfoyer/{idFoyer}/{nomUniversite}")
+    public Universite affecterFoyerAUniversite(@PathVariable("idFoyer") Long idFoyer,
+                                               @PathVariable("nomUniversite") String nomUniversite) {
+        return universiteService.affecterFoyerAUniversite(idFoyer, nomUniversite);
+    }
 }
