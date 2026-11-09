@@ -2,41 +2,48 @@ package com.esprim.gestion_foyer.controller;
 
 import com.esprim.gestion_foyer.entities.Foyer;
 import com.esprim.gestion_foyer.service.IFoyerService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Tag(name = "Gestion Foyer")
 @RestController
 @RequestMapping("/foyer")
 public class FoyerRestController {
     @Autowired
     private IFoyerService foyerService;
 
+    @Operation(description = "récupérer tous les foyers de la base de données")
     // http://localhost:8085/foyer/foyer/retrieve-all-foyers
     @GetMapping("/retrieve-all-foyers")
     public List<Foyer> getFoyers() {
         return foyerService.retrieveAllFoyers();
     }
 
+    @Operation(description = "récupérer un foyer par son id")
     // http://localhost:8085/foyer/foyer/retrieve-foyer/1
     @GetMapping("/retrieve-foyer/{foyer-id}")
     public Foyer retrieveFoyer(@PathVariable("foyer-id") Long foyerId) {
         return foyerService.retrieveFoyer(foyerId);
     }
 
+    @Operation(description = "ajouter un foyer")
     // http://localhost:8085/foyer/foyer/add-foyer
     @PostMapping("/add-foyer")
     public Foyer addFoyer(@RequestBody Foyer f) {
         return foyerService.addFoyer(f);
     }
 
+    @Operation(description = "supprimer un foyer par son id")
     // http://localhost:8085/foyer/foyer/remove-foyer/1
     @DeleteMapping("/remove-foyer/{foyer-id}")
     public void removeFoyer(@PathVariable("foyer-id") Long foyerId) {
         foyerService.removeFoyer(foyerId);
     }
 
+    @Operation(description = "modifier un foyer")
     // http://localhost:8085/foyer/foyer/modify-foyer
     @PutMapping("/modify-foyer")
     public Foyer modifyFoyer(@RequestBody Foyer foyer) {
