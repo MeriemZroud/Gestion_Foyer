@@ -58,4 +58,15 @@ public class UniversiteServiceImpl implements IUniversiteService {
         foyer.setUniversite(universite);
         return universite;
     }
+    @Transactional
+    @Override
+    public Universite desaffecterFoyerAUniversite(Long idUniversite) {
+        Universite universite = universiteRepository.findById(idUniversite)
+                .orElseThrow(() -> new RuntimeException("Universite not found with id: " + idUniversite));
+        if (universite.getFoyer()== null) {
+            throw new IllegalStateException("L'université " + idUniversite + " n'a pas de foyer.");
+        }
+        universite.setFoyer(null);
+        return universite;
+    }
 }

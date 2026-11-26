@@ -56,4 +56,10 @@ public class UniversiteRestController {
                                                @PathVariable("nomUniversite") String nomUniversite) {
         return universiteService.affecterFoyerAUniversite(idFoyer, nomUniversite);
     }
+    @Operation(description = "désaffecter le foyer d'une université")
+    @PutMapping("/desaffecterfoyer/{idUniversite}")
+    public Universite desaffecterFoyerAUniversite(@PathVariable("idUniversite") Long idUniversite) {
+        Universite universite = universiteService.retrieveUniversite(idUniversite);
+        return universite;
+    }
 }

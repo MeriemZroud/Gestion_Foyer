@@ -10,4 +10,5 @@ public interface IBlocService {
     public Bloc addBloc(Bloc b);
     public void removeBloc(Long blocId);
     public Bloc modifyBloc(Bloc bloc);
+    public Bloc affecterChambresABloc(List<Long> numChambre, Long idBloc);
 }

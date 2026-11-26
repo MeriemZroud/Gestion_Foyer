@@ -48,4 +48,11 @@ public class BlocRestController {
     public Bloc modifyBloc(@RequestBody Bloc bloc) {
         return blocService.modifyBloc(bloc);
     }
+
+    @Operation(description = "affecter une liste de chambres à un bloc")
+    @PutMapping("/affecter-chambres/{idBloc}")
+    public Bloc affecterChambresABloc(@RequestBody List<Long> numChambre,
+                                      @PathVariable("idBloc") Long idBloc) {
+        return blocService.affecterChambresABloc(numChambre, idBloc);
+    }
 }
