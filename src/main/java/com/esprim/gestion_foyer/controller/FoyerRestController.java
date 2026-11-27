@@ -49,4 +49,12 @@ public class FoyerRestController {
     public Foyer modifyFoyer(@RequestBody Foyer foyer) {
         return foyerService.modifyFoyer(foyer);
     }
+
+    @Operation(description = "ajouter un foyer et l'affecter à une université")
+    // http://localhost:8085/foyer/foyer/ajouterFoyerEtAffecterAUniversite
+    @PostMapping("/ajouterFoyerEtAffecterAUniversite")
+    public Foyer ajouterFoyerEtAffecterAUniversite(@RequestBody Foyer foyer, @PathVariable("id-universite") Long idUniversite) {
+        return foyerService.ajouterFoyerEtAffecterAUniversite(foyer, idUniversite);
+    }
+
 }
