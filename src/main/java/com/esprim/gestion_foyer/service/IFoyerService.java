@@ -1,6 +1,7 @@
 package com.esprim.gestion_foyer.service;
 
 import com.esprim.gestion_foyer.entities.Foyer;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 
@@ -10,5 +11,7 @@ public interface IFoyerService {
     public Foyer addFoyer(Foyer f);
     public void removeFoyer(Long foyerId);
     public Foyer modifyFoyer(Foyer foyer);
-    Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer,Long idUniversite);
+
+
+    Foyer ajouterFoyerEtAffecterAUniversite(Foyer foyer, long idUniversite);
 }

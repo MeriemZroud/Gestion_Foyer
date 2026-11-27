@@ -13,5 +13,4 @@ public interface UniversiteRepository extends JpaRepository<Universite, Long> {
 
     Optional<Universite> findByNomUniversite(String nomUniversite);
 
-    void saveFoyer(Foyer saveFoyer);
 }
